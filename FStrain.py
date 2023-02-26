@@ -352,7 +352,7 @@ def main():
             max_va = aves['va']
             model.enc.save_pretrained(os.path.join(ckpt_path, "max-va"))
         
-        if model_args.save_epoch and epoch % model.args.save_epoch == 0:
+        if model_args.save_epoch and epoch % model_args.save_epoch == 0:
             model.enc.save_pretrained(os.path.join(ckpt_path, "checkpoint-{}".format(model_args.num_epoch)))
 
         model.enc.save_pretrained(ckpt_path)
