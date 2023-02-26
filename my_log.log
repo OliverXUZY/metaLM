@@ -1,0 +1,46 @@
+02/26/2023 19:47:29 - WARNING - datasets.builder - Found cached dataset glue (/home/zhuoyan/.cache/huggingface/datasets/glue/cola/1.0.0/dacbe3125aa31d7f70367a07a8a9e72a5a0bfeb5fc42e75c9db75b96da6053ad)
+02/26/2023 19:47:31 - WARNING - datasets.builder - Found cached dataset glue (/home/zhuoyan/.cache/huggingface/datasets/glue/sst2/1.0.0/dacbe3125aa31d7f70367a07a8a9e72a5a0bfeb5fc42e75c9db75b96da6053ad)
+02/26/2023 19:47:33 - WARNING - datasets.builder - Found cached dataset glue (/home/zhuoyan/.cache/huggingface/datasets/glue/qqp/1.0.0/dacbe3125aa31d7f70367a07a8a9e72a5a0bfeb5fc42e75c9db75b96da6053ad)
+02/26/2023 19:47:35 - WARNING - datasets.builder - Found cached dataset glue (/home/zhuoyan/.cache/huggingface/datasets/glue/mnli/1.0.0/dacbe3125aa31d7f70367a07a8a9e72a5a0bfeb5fc42e75c9db75b96da6053ad)
+02/26/2023 19:47:36 - WARNING - datasets.builder - Found cached dataset glue (/home/zhuoyan/.cache/huggingface/datasets/glue/qnli/1.0.0/dacbe3125aa31d7f70367a07a8a9e72a5a0bfeb5fc42e75c9db75b96da6053ad)
+02/26/2023 19:47:38 - WARNING - datasets.builder - Found cached dataset glue (/home/zhuoyan/.cache/huggingface/datasets/glue/rte/1.0.0/dacbe3125aa31d7f70367a07a8a9e72a5a0bfeb5fc42e75c9db75b96da6053ad)
+02/26/2023 19:47:40 - WARNING - datasets.builder - Found cached dataset glue (/home/zhuoyan/.cache/huggingface/datasets/glue/wnli/1.0.0/dacbe3125aa31d7f70367a07a8a9e72a5a0bfeb5fc42e75c9db75b96da6053ad)
+02/26/2023 19:47:42 - WARNING - datasets.builder - Found cached dataset snli (/home/zhuoyan/.cache/huggingface/datasets/snli/plain_text/1.0.0/1f60b67533b65ae0275561ff7828aad5ee4282d0e6f844fd148d05d3c6ea251b)
+02/26/2023 19:47:42 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /home/zhuoyan/.cache/huggingface/datasets/snli/plain_text/1.0.0/1f60b67533b65ae0275561ff7828aad5ee4282d0e6f844fd148d05d3c6ea251b/cache-70ab9e9388993fdb.arrow
+02/26/2023 19:47:42 - WARNING - datasets.builder - Using custom data configuration default-e686a83bcaaf83e7
+02/26/2023 19:47:42 - WARNING - datasets.builder - Found cached dataset csv (/home/zhuoyan/.cache/huggingface/datasets/csv/default-e686a83bcaaf83e7/0.0.0/6b34fb8fcf56f7c8ba51dc895bfa2bfbe43546f190a60fcf74bb5e8afdcc2317)
+02/26/2023 19:47:43 - WARNING - datasets.builder - Using custom data configuration default-d3486c9403d6579d
+02/26/2023 19:47:43 - WARNING - datasets.builder - Found cached dataset csv (/home/zhuoyan/.cache/huggingface/datasets/csv/default-d3486c9403d6579d/0.0.0/6b34fb8fcf56f7c8ba51dc895bfa2bfbe43546f190a60fcf74bb5e8afdcc2317)
+02/26/2023 19:47:43 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /home/zhuoyan/.cache/huggingface/datasets/csv/default-d3486c9403d6579d/0.0.0/6b34fb8fcf56f7c8ba51dc895bfa2bfbe43546f190a60fcf74bb5e8afdcc2317/cache-f0df9959a73a07c5.arrow
+02/26/2023 19:47:44 - WARNING - datasets.builder - Using custom data configuration default-dccab0fb2bce11c9
+02/26/2023 19:47:44 - WARNING - datasets.builder - Found cached dataset csv (/home/zhuoyan/.cache/huggingface/datasets/csv/default-dccab0fb2bce11c9/0.0.0/6b34fb8fcf56f7c8ba51dc895bfa2bfbe43546f190a60fcf74bb5e8afdcc2317)
+02/26/2023 19:47:44 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /home/zhuoyan/.cache/huggingface/datasets/csv/default-dccab0fb2bce11c9/0.0.0/6b34fb8fcf56f7c8ba51dc895bfa2bfbe43546f190a60fcf74bb5e8afdcc2317/cache-c443432f10f67dc3.arrow
+02/26/2023 19:47:44 - WARNING - datasets.builder - Using custom data configuration default-0e965db5f6ff8c73
+02/26/2023 19:47:44 - WARNING - datasets.builder - Found cached dataset csv (/home/zhuoyan/.cache/huggingface/datasets/csv/default-0e965db5f6ff8c73/0.0.0/6b34fb8fcf56f7c8ba51dc895bfa2bfbe43546f190a60fcf74bb5e8afdcc2317)
+02/26/2023 19:47:45 - WARNING - datasets.builder - Using custom data configuration default-e6e23253e4d8b18b
+02/26/2023 19:47:45 - WARNING - datasets.builder - Found cached dataset csv (/home/zhuoyan/.cache/huggingface/datasets/csv/default-e6e23253e4d8b18b/0.0.0/6b34fb8fcf56f7c8ba51dc895bfa2bfbe43546f190a60fcf74bb5e8afdcc2317)
+02/26/2023 19:47:46 - WARNING - datasets.builder - Using custom data configuration default-43a57e7108240632
+02/26/2023 19:47:46 - WARNING - datasets.builder - Found cached dataset csv (/home/zhuoyan/.cache/huggingface/datasets/csv/default-43a57e7108240632/0.0.0/6b34fb8fcf56f7c8ba51dc895bfa2bfbe43546f190a60fcf74bb5e8afdcc2317)
+02/26/2023 19:47:48 - WARNING - datasets.builder - Found cached dataset glue (/home/zhuoyan/.cache/huggingface/datasets/glue/cola/1.0.0/dacbe3125aa31d7f70367a07a8a9e72a5a0bfeb5fc42e75c9db75b96da6053ad)
+02/26/2023 19:47:49 - WARNING - datasets.builder - Found cached dataset glue (/home/zhuoyan/.cache/huggingface/datasets/glue/sst2/1.0.0/dacbe3125aa31d7f70367a07a8a9e72a5a0bfeb5fc42e75c9db75b96da6053ad)
+02/26/2023 19:47:51 - WARNING - datasets.builder - Found cached dataset glue (/home/zhuoyan/.cache/huggingface/datasets/glue/qqp/1.0.0/dacbe3125aa31d7f70367a07a8a9e72a5a0bfeb5fc42e75c9db75b96da6053ad)
+02/26/2023 19:47:52 - WARNING - datasets.builder - Found cached dataset glue (/home/zhuoyan/.cache/huggingface/datasets/glue/mnli/1.0.0/dacbe3125aa31d7f70367a07a8a9e72a5a0bfeb5fc42e75c9db75b96da6053ad)
+02/26/2023 19:47:54 - WARNING - datasets.builder - Found cached dataset glue (/home/zhuoyan/.cache/huggingface/datasets/glue/qnli/1.0.0/dacbe3125aa31d7f70367a07a8a9e72a5a0bfeb5fc42e75c9db75b96da6053ad)
+02/26/2023 19:47:56 - WARNING - datasets.builder - Found cached dataset glue (/home/zhuoyan/.cache/huggingface/datasets/glue/rte/1.0.0/dacbe3125aa31d7f70367a07a8a9e72a5a0bfeb5fc42e75c9db75b96da6053ad)
+02/26/2023 19:47:57 - WARNING - datasets.builder - Found cached dataset glue (/home/zhuoyan/.cache/huggingface/datasets/glue/wnli/1.0.0/dacbe3125aa31d7f70367a07a8a9e72a5a0bfeb5fc42e75c9db75b96da6053ad)
+02/26/2023 19:47:59 - WARNING - datasets.builder - Found cached dataset snli (/home/zhuoyan/.cache/huggingface/datasets/snli/plain_text/1.0.0/1f60b67533b65ae0275561ff7828aad5ee4282d0e6f844fd148d05d3c6ea251b)
+02/26/2023 19:47:59 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /home/zhuoyan/.cache/huggingface/datasets/snli/plain_text/1.0.0/1f60b67533b65ae0275561ff7828aad5ee4282d0e6f844fd148d05d3c6ea251b/cache-b4e3b8541600a6f6.arrow
+02/26/2023 19:47:59 - WARNING - datasets.builder - Using custom data configuration default-09dce50a6c3492cc
+02/26/2023 19:47:59 - WARNING - datasets.builder - Found cached dataset csv (/home/zhuoyan/.cache/huggingface/datasets/csv/default-09dce50a6c3492cc/0.0.0/6b34fb8fcf56f7c8ba51dc895bfa2bfbe43546f190a60fcf74bb5e8afdcc2317)
+02/26/2023 19:47:59 - WARNING - datasets.builder - Using custom data configuration default-3c69f4aa71eb8143
+02/26/2023 19:47:59 - WARNING - datasets.builder - Found cached dataset csv (/home/zhuoyan/.cache/huggingface/datasets/csv/default-3c69f4aa71eb8143/0.0.0/6b34fb8fcf56f7c8ba51dc895bfa2bfbe43546f190a60fcf74bb5e8afdcc2317)
+02/26/2023 19:47:59 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /home/zhuoyan/.cache/huggingface/datasets/csv/default-3c69f4aa71eb8143/0.0.0/6b34fb8fcf56f7c8ba51dc895bfa2bfbe43546f190a60fcf74bb5e8afdcc2317/cache-c4a6487d56688ffe.arrow
+02/26/2023 19:48:00 - WARNING - datasets.builder - Using custom data configuration default-8bc74f8a02b22703
+02/26/2023 19:48:00 - WARNING - datasets.builder - Found cached dataset csv (/home/zhuoyan/.cache/huggingface/datasets/csv/default-8bc74f8a02b22703/0.0.0/6b34fb8fcf56f7c8ba51dc895bfa2bfbe43546f190a60fcf74bb5e8afdcc2317)
+02/26/2023 19:48:00 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /home/zhuoyan/.cache/huggingface/datasets/csv/default-8bc74f8a02b22703/0.0.0/6b34fb8fcf56f7c8ba51dc895bfa2bfbe43546f190a60fcf74bb5e8afdcc2317/cache-5a80381c22bda68c.arrow
+02/26/2023 19:48:00 - WARNING - datasets.builder - Using custom data configuration default-8e30174fc65d6ef4
+02/26/2023 19:48:00 - WARNING - datasets.builder - Found cached dataset csv (/home/zhuoyan/.cache/huggingface/datasets/csv/default-8e30174fc65d6ef4/0.0.0/6b34fb8fcf56f7c8ba51dc895bfa2bfbe43546f190a60fcf74bb5e8afdcc2317)
+02/26/2023 19:48:00 - WARNING - datasets.builder - Using custom data configuration default-5bb7c36021c31219
+02/26/2023 19:48:00 - WARNING - datasets.builder - Found cached dataset csv (/home/zhuoyan/.cache/huggingface/datasets/csv/default-5bb7c36021c31219/0.0.0/6b34fb8fcf56f7c8ba51dc895bfa2bfbe43546f190a60fcf74bb5e8afdcc2317)
+02/26/2023 19:48:01 - WARNING - datasets.builder - Using custom data configuration default-bc20b321bc6b264b
+02/26/2023 19:48:01 - WARNING - datasets.builder - Found cached dataset csv (/home/zhuoyan/.cache/huggingface/datasets/csv/default-bc20b321bc6b264b/0.0.0/6b34fb8fcf56f7c8ba51dc895bfa2bfbe43546f190a60fcf74bb5e8afdcc2317)
