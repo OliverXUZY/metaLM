@@ -30,7 +30,7 @@ The accuracy for each epoch is averaged through all 200 batches.
 
 |Original | Finetune|
 |--|--|
-|acc=0.53 +- 0.01 | acc=0.60 +- 0.01|
+|0.53 +- 0.01 | 0.60 +- 0.01|
 
 ### Examples
 * meta finetune backbone
