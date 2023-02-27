@@ -14,6 +14,7 @@ GLUE like datasets:
         - Compute loss nearest centroids method, backward gradient. 
         - Compute accuracy and save.
 
+The evaluation is based on nearest-centroid. We do not learn linear head here.
 Ideally, m = 5, now I took m = 1. Optimization details:
 
 __epoch 1 to 50:__
