@@ -1,19 +1,20 @@
 python FStrain.py  \
-    --model_name_or_path bert-base-cased \
     --gpu 0 \
     --save_epoch 10 \
-    --lr 0.01 \
+    --optimizer adamW \
+    --lr 2e-5 \
+    --weight_decay 5e-4 \
     --n_shot 2 \
     --n_query 8 \
     --num_batch 200 \
-    --num_epoch 20
+    --num_epoch 20 \
+    --start_epoch_from 0
+
+# --model_name_or_path save/save_2s8q \
+# --tokenizer_name save/save_2s8q \
 
 
 
 
 
 
-
-
-
-# python FStest.py --gpu 1 --output_dir save --n_shot 2 --n_query 8 --num_epoch 5
