@@ -1,5 +1,28 @@
 # metaLM
 
+### Datasets
+GLUE like datasets: 
+- train dataset: cola, sst2, qqp, mnli, qnli, rte, wnli, snli, 
+            trec, mpqa, cr, sst5, mr, subj. The datasets contains binary classes or multi-classes.
+- test dataset: mrpc
+### Algorithms:
+1. Sub-sample subdatasets with 5000 samples from each datasets.
+2. For epoch = 1, ..., n_epoch
+    1. For batch = 1, ..., 200:
+        - Sample m subdataset, sample 2 shots and 8 querys per classes points from each subdatasets.
+        - Forward through encoder to get representations.
+        - Backward gradient using nearest centroids method.
+
+Ideally, m = 5, now I took m = 1. Optimization details:
+```
+epoch 1 to 50
+optimizer: sgd
+learning rate: 0.01
+momentum: 1
+weight decay: 0
+```
+
+
 ### Examples
 * meta finetune backbone
 ```
