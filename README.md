@@ -11,7 +11,8 @@ GLUE like datasets:
     1. For batch = 1, ..., 200:
         - Sample m subdataset, sample 2 shots and 8 querys per classes points from each subdatasets.
         - Forward through encoder to get representations.
-        - Backward gradient using nearest centroids method.
+        - Compute loss nearest centroids method, backward gradient. 
+        - Compute accuracy and save.
 
 Ideally, m = 5, now I took m = 1. Optimization details:
 ```
@@ -21,6 +22,7 @@ learning rate: 0.01
 momentum: 1
 weight decay: 0
 ```
+The accuracy for each epoch is averaged through all 200 batches.
 
 
 ### Examples
