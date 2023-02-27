@@ -15,13 +15,22 @@ GLUE like datasets:
         - Compute accuracy and save.
 
 Ideally, m = 5, now I took m = 1. Optimization details:
+
+__epoch 1 to 50:__
 ```
-epoch 1 to 50
 optimizer: sgd
 learning rate: 0.01
 momentum: 1
 weight decay: 0
 ```
+**epoch 51 to 70:**
+```
+optimizer: sgd
+learning rate: 1e-05
+momentum: 1
+weight decay: 0.0005
+```
+
 The accuracy for each epoch is averaged through all 200 batches.
 
 
