@@ -60,6 +60,11 @@ python FStest.py \
     --num_epoch 10
 ```
 
+### Dependencies
+```
+pip install -r requirements.txt
+```
+
 
 ### Local data directory
 ```
