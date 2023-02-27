@@ -23,7 +23,7 @@ learning rate: 0.01
 momentum: 1
 weight decay: 0
 ```
-**epoch 51 to 70:**
+**epoch 51 to 90:**
 ```
 optimizer: sgd
 learning rate: 1e-05
@@ -33,6 +33,11 @@ weight decay: 0.0005
 
 The accuracy for each epoch is averaged through all 200 batches.
 
+### Result
+
+|Original | Finetune|
+|--|--|
+|acc=0.54 +- 0.02 | acc=0.50 +- 0.00|
 
 ### Examples
 * meta finetune backbone
