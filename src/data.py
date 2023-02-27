@@ -63,7 +63,7 @@ ROOT = '/home/zhuoyan/text-clf/materials'
 class FSDataset(Dataset):
     def __init__(self, task_name = "mrpc", split = 'test', 
                n_batch=200, n_shot=2, n_query=8, pad_to_max_length = True, 
-               max_seq_length = 128, tokenizer_name = 'bert-base-cased',
+               max_seq_length = 128, tokenizer = None,
                overwrite_cache = False):
         """
         Args:
@@ -79,7 +79,7 @@ class FSDataset(Dataset):
                 "If False, will pad the samples dynamically when batching to the maximum length in the batch."
         max_seq_length (int): "The maximum total input sequence length after tokenization. Sequences longer "
                 "than this will be truncated, sequences shorter will be padded."
-        tokenizer_name (str): the name of tokenizer
+        tokenizer: the only tokenizer
         overwrite_cache (bool): Overwrite the cached preprocessed datasets or not.
         """
         super(FSDataset, self).__init__()
@@ -97,9 +97,7 @@ class FSDataset(Dataset):
         self.padding = "max_length" if pad_to_max_length else False
         self.max_seq_length = max_seq_length
 
-        self.tokenizer = AutoTokenizer.from_pretrained(
-            tokenizer_name,
-        )
+        self.tokenizer = tokenizer
         self.overwrite_cache = overwrite_cache
 
 
@@ -157,7 +155,7 @@ class FSDataset(Dataset):
 class metaDataset(Dataset):
     def __init__(self, split = 'train', 
                n_batch=200, n_shot=2, n_query=8, pad_to_max_length = True, 
-               max_seq_length = 128, tokenizer_name = 'bert-base-cased',
+               max_seq_length = 128, tokenizer = None,
                overwrite_cache = False):
         """
         Args:
@@ -173,14 +171,12 @@ class metaDataset(Dataset):
                 "If False, will pad the samples dynamically when batching to the maximum length in the batch."
         max_seq_length (int): "The maximum total input sequence length after tokenization. Sequences longer "
                 "than this will be truncated, sequences shorter will be padded."
-        tokenizer_name (str): the name of tokenizer
+        tokenizer : pass the only tokenizer
         overwrite_cache (bool): Overwrite the cached preprocessed datasets or not.
         """
         super(metaDataset, self).__init__()
 
-        self.tokenizer = AutoTokenizer.from_pretrained(
-            tokenizer_name,
-        )
+        self.tokenizer = tokenizer
         self.overwrite_cache = overwrite_cache
         self.padding = "max_length" if pad_to_max_length else False
         self.max_seq_length = max_seq_length

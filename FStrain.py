@@ -179,6 +179,10 @@ def main():
     # logger.setLevel(log_level)
     # logger.setLevel(logging.ERROR)
 
+    tokenizer = AutoTokenizer.from_pretrained(
+            model_args.tokenizer_name if model_args.tokenizer_name else model_args.model_name_or_path,
+        )
+
     logger.info("load dataset")
     
     ##### Dataset #####
@@ -186,7 +190,7 @@ def main():
         split = 'train', 
         n_batch=data_args.num_batch,
         n_shot=data_args.n_shot, n_query=data_args.n_query,
-        tokenizer_name = model_args.model_name_or_path
+        tokenizer = tokenizer
     )
 
     # name, sq_idx, label_idx, result = train_dataset[0]
@@ -216,7 +220,7 @@ def main():
         split = 'validation', 
         n_batch=data_args.num_batch,
         n_shot=data_args.n_shot, n_query=data_args.n_query,
-        tokenizer_name = model_args.model_name_or_path
+        tokenizer = tokenizer
     )
 
     val_loader = DataLoader(val_dataset, batch_size=1)
@@ -351,11 +355,15 @@ def main():
         if aves['va'] > max_va:
             max_va = aves['va']
             model.enc.save_pretrained(os.path.join(ckpt_path, "max-va"))
+            tokenizer.save_pretrained(os.path.join(ckpt_path, "max-va"))
+
         
         if model_args.save_epoch and epoch % model_args.save_epoch == 0:
-            model.enc.save_pretrained(os.path.join(ckpt_path, "checkpoint-{}".format(model_args.num_epoch)))
+            model.enc.save_pretrained(os.path.join(ckpt_path, "checkpoint-{}".format(model_args.save_epoch)))
+            tokenizer.save_pretrained(os.path.join(ckpt_path, "checkpoint-{}".format(model_args.save_epoch)))
 
         model.enc.save_pretrained(ckpt_path)
+        tokenizer.save_pretrained(ckpt_path)
 
 
         

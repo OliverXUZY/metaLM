@@ -138,7 +138,7 @@ def main():
 
     src.set_log_path(model_args.output_dir)
 
-    src.ensure_path(model_args.output_dir)
+    # src.ensure_path(model_args.output_dir)
 
     logging.basicConfig(
         format="%(asctime)s - %(levelname)s - %(name)s - %(message)s",
@@ -157,15 +157,17 @@ def main():
     # print(result.keys())
 
     ##### Dataset #####
+    tokenizer = AutoTokenizer.from_pretrained(
+            model_args.tokenizer_name if model_args.tokenizer_name else model_args.model_name_or_path,
+        )
     dataset = FSDataset(
         task_name=data_args.task_name, 
         split = 'test', 
         n_batch=data_args.num_batch,
         n_shot=data_args.n_shot, n_query=data_args.n_query,
-        tokenizer_name = model_args.model_name_or_path
+        tokenizer = tokenizer
     )
 
-    
     loader = DataLoader(dataset, batch_size=1)
 
 
@@ -211,7 +213,7 @@ def main():
         src.log('[{}/{}]: acc={:.2f} +- {:.2f} (%)'.format(
             epoch, str(model_args.num_epoch), aves['ta'].item(), 
             src.mean_confidence_interval(ta_lst)), 
-            filename = f'test_{dataset.n_shot}s{dataset.n_query}q_{model_args.model_name_or_path}.txt')
+            filename = f'test_{dataset.n_shot}s{dataset.n_query}q.txt')
 
 
 
