@@ -7,15 +7,15 @@ GLUE like datasets:
 - test dataset: mrpc
 ### Algorithms:
 1. Sub-sample subdatasets with 5000 samples from each datasets.
-2. For epoch = 1, ..., n_epoch
-    1. For batch = 1, ..., 200:
+2. For epoch = 1, ..., $n\\_epoch$
+    1. For batch = 1, ..., $n\\_batch$:
         - Sample $m$ subdataset, sample 2 shot samples and 8 query samples per classes from each subdatasets.
         - Forward through encoder to get representations.
         - Compute loss nearest centroids method, backward gradient. 
         - Compute accuracy and save.
 
 The evaluation is based on nearest-centroid. We do not learn linear head here.
-Ideally, m = 5, now I took m = 1. Optimization details:
+$n\\_epoch$ = 20,  $m$ = 5. Optimization details:
 
 __epoch 1 to 20:__
 ```
@@ -28,9 +28,10 @@ The accuracy for each epoch is averaged through all 200 batches.
 
 ### Result
 
-|Original | Finetune|
-|--|--|
-|0.53 +- 0.01 | 0.60 +- 0.01|
+|Backbone|Num batch|Accuracy|
+|--|--|--|
+|BERT| 0| 0.53 +- 0.01|
+|    |40 | 0.60 +- 0.01|
 
 ### Examples
 * meta finetune backbone
