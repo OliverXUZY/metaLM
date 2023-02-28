@@ -95,6 +95,11 @@ class ModelArguments:
         metadata={"help": ("The weight decay to se")},
     )
 
+    start_epoch_from: int = field(
+        default=0,
+        metadata={"help": ("resume from checkpoint from epoch \{\}")},
+    )
+
 
 
 
@@ -108,7 +113,7 @@ class DataArguments:
     the command line.
     """
 
-    num_task: int = field(
+    num_datasets: int = field(
         default=1,
         metadata={"help": ("The number of the categories(tasks) to train on one run")},
     )
@@ -162,8 +167,9 @@ def main():
     else:
         DEVICE =  torch.device("cpu")
     
-    ckpt_name = 'save_{}s{}q'.format(
+    ckpt_name = 'save_{}s{}q_{}_batch{}'.format(
         data_args.n_shot, data_args.n_query,
+        model_args.optimizer, data_args.num_batch
         )
     ckpt_path = os.path.join(model_args.output_dir, ckpt_name)
     src.ensure_path(ckpt_path)
@@ -188,7 +194,7 @@ def main():
     ##### Dataset #####
     train_dataset = metaDataset(
         split = 'train', 
-        n_batch=data_args.num_batch,
+        n_batch=data_args.num_batch * data_args.num_datasets,
         n_shot=data_args.n_shot, n_query=data_args.n_query,
         tokenizer = tokenizer
     )
@@ -218,7 +224,7 @@ def main():
 ######################################################################################################################################
     val_dataset = metaDataset(
         split = 'validation', 
-        n_batch=data_args.num_batch,
+        n_batch=data_args.num_batch * data_args.num_datasets,
         n_shot=data_args.n_shot, n_query=data_args.n_query,
         tokenizer = tokenizer
     )
@@ -251,9 +257,9 @@ def main():
                                 )
     
     ### log opt info to file
-    start_epoch_from = 0
-    with open(os.path.join(ckpt_path, "config.txt"), "a") as f:
-        f.write("epoch {} to {}\n".format(start_epoch_from + 1, model_args.num_epoch))
+    start_epoch_from = model_args.start_epoch_from
+    with open(os.path.join(ckpt_path, "optim_config.txt"), "a") as f:
+        f.write("epoch {} to {}\n".format(start_epoch_from + 1, start_epoch_from + model_args.num_epoch))
         f.write("optimizer: {}\n".format(model_args.optimizer))
         f.write("learning rate: {}\n".format(model_args.lr))
         f.write("momentum: {}\n".format(model_args.momentum))
@@ -263,7 +269,7 @@ def main():
     ##### Training and evaluation #####
     src.log("***** Running training *****")
     src.log(f"  Num Epochs = {model_args.num_epoch}")
-    src.log(f"  Num batches(draws) = {len(train_dataset)}")
+    src.log(f"  Num batches(draws) = {len(train_dataset)/data_args.num_datasets}")
     src.log(f"  Instantaneous batch size per device = {data_args.n_shot}-shot, {data_args.n_query}-query")
     # src.log(f"  Gradient Accumulation steps = {args.gradient_accumulation_steps}")
     timer_elapsed, timer_epoch = src.Timer(), src.Timer()
@@ -286,7 +292,11 @@ def main():
         aves = {k: src.AverageMeter() for k in aves_keys}
 
         model.train() 
-        for (name, sq_idx, label_idx, batch) in tqdm(train_loader, desc='train', leave=False):
+        dataset_list = []
+        for step, (name, sq_idx, label_idx, batch) in enumerate(tqdm(train_loader, desc='train', leave=False)):
+            if name in dataset_list:
+                continue
+            dataset_list.append(name)
             for key, val in batch.items():
                 batch[key] = val[0].to(DEVICE)
             sq_idx = sq_idx.view(-1).to(DEVICE)
@@ -297,14 +307,20 @@ def main():
             y = label_idx[sq_idx == 1]
             loss = loss_func(logits, y)
 
+            ## 5 datasets then update gradient once
+            loss = loss / data_args.num_datasets
+            loss.backward()
+            
+
             acc = src.accuracy(logits, y)
 
             aves['tl'].update(loss.item())
             aves['ta'].update(acc)
 
-            optimizer.zero_grad()
-            loss.backward()
-            optimizer.step()
+            if len(dataset_list) == data_args.num_datasets or step == len(train_loader) - 1:
+                optimizer.step()
+                optimizer.zero_grad()
+                dataset_list = []
 
             # src.log(f"epoch: {epoch} --train loss: {aves['tl'].item()}, acc: {aves['ta'].item()}")
 
@@ -342,7 +358,7 @@ def main():
         
         # formats output
         log_str = '[{}/{}] train {:.4f}(C)|{:.2f}'.format(
-            str(epoch), str(model_args.num_epoch), aves['tl'], aves['ta'])
+            str(start_epoch_from + epoch), str(start_epoch_from + model_args.num_epoch), aves['tl'], aves['ta'])
         
         log_str += ', val {:.4f}(C)|{:.2f}'.format(aves['vl'], aves['va'])
 
@@ -359,8 +375,8 @@ def main():
 
         
         if model_args.save_epoch and epoch % model_args.save_epoch == 0:
-            model.enc.save_pretrained(os.path.join(ckpt_path, "checkpoint-{}".format(model_args.save_epoch)))
-            tokenizer.save_pretrained(os.path.join(ckpt_path, "checkpoint-{}".format(model_args.save_epoch)))
+            model.enc.save_pretrained(os.path.join(ckpt_path, "checkpoint-{}".format(start_epoch_from + model_args.save_epoch)))
+            tokenizer.save_pretrained(os.path.join(ckpt_path, "checkpoint-{}".format(start_epoch_from + model_args.save_epoch)))
 
         model.enc.save_pretrained(ckpt_path)
         tokenizer.save_pretrained(ckpt_path)

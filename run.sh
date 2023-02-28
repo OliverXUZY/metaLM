@@ -8,7 +8,8 @@ python FStrain.py  \
     --n_query 8 \
     --num_batch 200 \
     --num_epoch 20 \
-    --start_epoch_from 0
+    --start_epoch_from 0 \
+    --num_datasets 5
 
 # --model_name_or_path save/save_2s8q \
 # --tokenizer_name save/save_2s8q \
