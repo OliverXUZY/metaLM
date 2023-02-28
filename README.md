@@ -9,13 +9,13 @@ GLUE like datasets:
 1. Sub-sample subdatasets with 5000 samples from each datasets.
 2. For epoch = 1, ..., $n\\_epoch$
     1. For batch = 1, ..., $n\\_batch$:
-        - Sample $m$ subdataset, sample 2 shot samples and 8 query samples per classes from each subdatasets.
+        - Sample 5 subdataset, sample 2 shot samples and 8 query samples per classes from each subdatasets.
         - Forward through encoder to get representations.
         - Compute loss nearest centroids method, backward gradient. 
         - Compute accuracy and save.
 
 The evaluation is based on nearest-centroid. We do not learn linear head here.
-$n\\_epoch$ = 20,  $m$ = 5. Optimization details:
+$n\\_epoch$ = 20. Optimization details:
 
 __epoch 1 to 20:__
 ```
