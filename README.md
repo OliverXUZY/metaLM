@@ -24,7 +24,7 @@ learning rate: 2e-05
 momentum: 1
 weight decay: 5e-4
 ```
-The accuracy for each epoch is averaged through all 200 batches.
+The accuracy for each epoch is averaged cross all batches.
 
 ### Result
 
