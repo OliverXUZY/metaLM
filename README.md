@@ -30,8 +30,9 @@ The accuracy for each epoch is averaged cross all batches.
 
 |Backbone|Num batch|Accuracy|
 |--|--|--|
-|BERT| 0| 0.53 +- 0.01|
-|    |40 | 0.60 +- 0.01|
+|BERT| 0  | 0.53 +- 0.01|
+|    |40  | 0.60 +- 0.01|
+|    |200 | 0.61 +- 0.01|
 
 ### Examples
 * meta finetune backbone
